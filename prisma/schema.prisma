@@ -45,7 +45,7 @@ model Guest{
   guest_id            Int @id @default(autoincrement())
   name                String
   type                GuestType
-  event               Event @relation(fields:[event_id], references:[event_id])
+  event               Event @relation(fields:[event_id], references:[event_id], onDelete: Cascade)
   event_id            Int
   createdAt           DateTime @default(now())
   updatedAt           DateTime @updatedAt
@@ -57,7 +57,7 @@ model Tasks{
   description         String
   isDone              Boolean
   event_id            Int
-  event               Event @relation(fields:[event_id], references:[event_id])
+  event               Event @relation(fields:[event_id], references:[event_id], onDelete: Cascade)
   createdAt           DateTime @default(now())
   updatedAt           DateTime @updatedAt
 }
