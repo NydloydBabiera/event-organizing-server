@@ -1,16 +1,13 @@
 ## Requirements
 - Node 22
 - Prisma 5
-- Postgres
+- Docker Desktop
 
 ## Manual Actions
-- Create a database manually
-- setup env files
-- generate JWT token
+- download and install docker desktop (if you dont have)
 
 ## Scripts to run
+- docker-compose up -d (to initialize pg database)
 - npm install
 - npx prisma migrate dev --name init
 - npx prisma generate
-- npx prisma db seed (to add default user)
-- npm run dev / npm run start
