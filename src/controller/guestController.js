@@ -49,7 +49,7 @@ const updateGuest = async (req, res) => {
     const { id } = req.params;
     const { name, type } = req.body;
     const guest = await prisma.guest.update({
-      where: { id },
+      where: { guest_id: Number(id) },
       data: { name, type },
     });
     res.json({
@@ -67,7 +67,7 @@ const deleteGuest = async (req, res) => {
   try {
     const { id } = req.params;
     await prisma.guest.delete({
-      where: { id },
+      where: { guest_id: Number(id) },
     });
     res.json({
       message: "Guest deleted",
@@ -83,5 +83,5 @@ module.exports = {
   addGuest,
   getGuestsByEvent,
   updateGuest,
-  deleteGuest
+  deleteGuest,
 };

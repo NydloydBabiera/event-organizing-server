@@ -38,10 +38,10 @@ const getEvents = async (req, res) => {
 
 const getEventByHost = async (req, res) => {
   try {
-    const { host_id } = req.params;
+    const { id } = req.params;
     const events = await prisma.event.findMany({
       where: {
-        host_id,
+        user_id: Number(id),
       },
     });
     res.json(events);
@@ -55,13 +55,14 @@ const getEventByHost = async (req, res) => {
 const updateEvent = async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, venue, dateSchedule } = req.body;
+    const { name, venue, dateSchedule, user_id } = req.body;
     const event = await prisma.event.update({
-      where: { id },
+      where: { event_id: Number(id) },
       data: {
         name,
         venue,
         date_schedule: new Date(dateSchedule).toISOString(),
+        user_id,
       },
     });
     res.json({
@@ -79,7 +80,7 @@ const deleteEvent = async (req, res) => {
   try {
     const { id } = req.params;
     await prisma.event.delete({
-      where: { id },
+      where: { event_id: Number(id) },
     });
     res.json({
       message: "Event deleted",
@@ -96,5 +97,5 @@ module.exports = {
   getEvents,
   getEventByHost,
   updateEvent,
-  deleteEvent
+  deleteEvent,
 };

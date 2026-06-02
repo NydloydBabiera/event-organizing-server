@@ -7,7 +7,7 @@ const userController = require("../controller/userController");
 //
 // REGISTER
 //
-router.post("/register", authMiddleware, userController.registerUser);
+router.post("/register", userController.registerUser);
 
 //
 // LOGIN

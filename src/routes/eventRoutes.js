@@ -5,7 +5,7 @@ const eventController = require("../controller/eventController");
 
 router.post("/createEvent", authMiddleware, eventController.createEvent);
 router.get("/", authMiddleware, eventController.getEvents);
-router.get("/:host_id", authMiddleware, eventController.getEventByHost);
+router.get("/:id", authMiddleware, eventController.getEventByHost);
 router.put("/:id", authMiddleware, eventController.updateEvent);
 router.delete("/:id", authMiddleware, eventController.deleteEvent);
 
