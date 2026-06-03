@@ -6,6 +6,7 @@
 ## Manual Actions
 - download and install docker desktop (if you dont have)
 - setup .env
+- if you have an existing postgresql running on your device, I highly suggest to stop it's services
 
 ## Scripts to run
 - docker-compose up -d (to initialize pg database)
